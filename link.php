@@ -33,3 +33,4 @@ function submit($site, $rand, $url)
 if (isset($_POST['submit'])) {
     submit($site, $rand, $url);
 }
+
