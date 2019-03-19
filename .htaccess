@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+
+    RewriteRule ^cu2z8$ /links/cu2z8.php
+    RewriteRule ^PeQuW$ /links/PeQuW.php
+    RewriteRule ^dcxsk$ /links/dcxsk.php
