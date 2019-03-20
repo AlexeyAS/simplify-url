@@ -21,6 +21,7 @@
 <td>created -<br>Дата добавления строки</td>
 </tr></tbody></table>
 
+###### Список выполненных команд mysql
 > mysql <br>
 > use test2db <br>
 > show tables; <br>
