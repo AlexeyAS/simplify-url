@@ -22,7 +22,8 @@
 </tr></tbody></table>
 
 ###### Список выполненных команд mysql
-``` mysql
+```
+mysql
 use test2db
 show tables;
 create table links
