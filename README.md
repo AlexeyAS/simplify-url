@@ -14,7 +14,7 @@
 ##### id:21-25 генерация ссылки 2-м способом
 
 
-> mysql 
+> mysql <br>
 > use test2db
 > show tables;
 > create table links 
