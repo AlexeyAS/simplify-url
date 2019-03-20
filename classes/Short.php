@@ -9,20 +9,28 @@ class Short
         $this->db = new mysqli('localhost', 'root', '', 'test2db');
     }
 
-    protected function generateCode($rand) //Генерация кода-ссылки
+    protected function generateCode($rand, $text) //Генерация кода-ссылки
     {
         /*Генерация ссылки на основе конвертации числового типа инкремента id
-        return base_convert($rand, 10, 36);
+        $rand+=10000; //для наглядности примера id+=10000
+        $rand = base_convert($rand, 10, 36);
+        Так же добавляем пользовательскую ссылку, если она есть
+        if($text != NULL){
+            $rand .= "/$text";
+        }
+        return $rand;
         */
-
         /*Генерация ссылки на основе инкремента id строки + рандома символов*/
         $symb = "qwertyuiopasdfghjklzxcvbnm";
-        /*Создаём рандом. Цифра 3 обозначает длину.*/
         $rand .= substr(str_shuffle($symb), 0, 3);
+        if($text != NULL){
+            $rand .= "/$text";
+        }
         return $rand;
+
     }
 
-    public function makeCode($url) //Вывод-запись кода-ссылки
+    public function makeCode($url, $text) //Вывод-запись кода-ссылки
     {
         $url = trim($url); //Стираем пробелы, возможные при копировании ссылки пользователем
         /*Валидация URL*/
@@ -37,7 +45,7 @@ class Short
             return $exists->fetch_object()->code;
         } else {
             $this->db->query("INSERT INTO links (url, created) VALUES ('{$url}', NOW())");
-            $code = $this->generateCode($this->db->insert_id);
+            $code = $this->generateCode($this->db->insert_id, $text);
             $this->db->query("UPDATE links SET code = '{$code}' WHERE url = '{$url}'");
             return $code;
         }

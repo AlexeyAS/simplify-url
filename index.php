@@ -20,7 +20,8 @@ session_start(); //Возобновление сессии на текущей �
 
     <form action="shorten.php" method="post">
         <input type="url" name="url" required placeholder="Введите ссылку..." autocomplete="off">
-        <input type="submit" name="submit" value="Сократить">
+        <input type="text" name="text" placeholder="Введите свою ссылку..." autocomplete="off">
+        <input type="submit" name="submit" value="Сгенерировать">
     </form>
 
     </body>
