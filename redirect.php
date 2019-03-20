@@ -1,14 +1,15 @@
 <?php
 require_once 'classes/Short.php';
 
+//Перенаправление по коду-ссылке
 if (isset($_GET['code'])) {
-    $s = new Short;
+    $sh = new Short;
     $code = $_GET['code'];
-
-    if($url = $s->getUrl($code)) {
+//Получение URL адреса
+    if ($url = $sh->getUrl($code)) {
         header("Location: {$url}");
         die();
     }
 }
 
-header('Locate: index.php');
+header('Locate: index.php'); //Перенаправление браузера

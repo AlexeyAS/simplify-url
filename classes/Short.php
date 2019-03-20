@@ -2,51 +2,54 @@
 
 class Short
 {
-    protected $db;
+    protected $db; //БД
 
-    public function __construct()
+    public function __construct() //Вводим параметры БД на нашем сервере
     {
         $this->db = new mysqli('localhost', 'root', '', 'test2db');
     }
 
-    protected function generateCode($num){
-        return base_convert($num, 10, 36);
+    protected function generateCode($rand) //Генерация кода-ссылки
+    {
+        /*Генерация ссылки на основе конвертации числового типа инкремента id
+        return base_convert($rand, 10, 36);
+        */
+
+        /*Генерация ссылки на основе инкремента id строки + рандома символов*/
+        $symb = "qwertyuiopasdfghjklzxcvbnm";
+        /*Создаём рандом. Цифра 3 обозначает длину.*/
+        $rand .= substr(str_shuffle($symb), 0, 3);
+        return $rand;
     }
 
-    public function makeCode($url)
+    public function makeCode($url) //Вывод-запись кода-ссылки
     {
-        $url = trim($url);
-
-        if(!filter_var($url, FILTER_VALIDATE_URL)) {
+        $url = trim($url); //Стираем пробелы, возможные при копировании ссылки пользователем
+        /*Валидация URL*/
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
             return '';
         }
+        /*Сравнение строки URL-адреса в таблице links с уже существующими*/
         $url = $this->db->escape_string($url);
-
         $exists = $this->db->query("SELECT code FROM links WHERE url = '{$url}'");
-
-        if($exists->num_rows) {
+        /*Вывод кода-ссылки существующего адреса, либо запись url в таблицу и вывод кода-ссылки*/
+        if ($exists->num_rows) {
             return $exists->fetch_object()->code;
         } else {
             $this->db->query("INSERT INTO links (url, created) VALUES ('{$url}', NOW())");
-
             $code = $this->generateCode($this->db->insert_id);
-
             $this->db->query("UPDATE links SET code = '{$code}' WHERE url = '{$url}'");
-
             return $code;
-
         }
     }
 
-    public function getUrl($code)
+    public function getUrl($code) //Получение URL ссылки из кода-ссылки
     {
         $code = $this->db->escape_string($code);
         $code = $this->db->query("SELECT url FROM links WHERE code = '$code'");
-
-        if($code->num_rows) {
+        if ($code->num_rows) {
             return $code->fetch_object()->url;
         }
-
         return '';
     }
 }

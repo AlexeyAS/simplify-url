@@ -1,17 +1,17 @@
 <?php
-session_start();
+session_start(); //Возобновление сессии на текущей странице
 ?>
-
 <!DOCTYPE html>
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Сокращатель ссылок</title>
+        <title>URL to Short</title>
     </head>
     <body>
+    <h1>Сократи меня</h1>
 
-    <!-- Отображение ссылки на текущей странице -->
     <?php
+    /*Отображение ответа(ссылки) на текущей странице*/
     if(isset($_SESSION['feedback'])) {
         echo "<p>{$_SESSION['feedback']}</p>";
         unset($_SESSION['feedback']);

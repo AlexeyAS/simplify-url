@@ -1,13 +1,13 @@
 <?php
 session_start();
 require_once 'classes/Short.php';
+$sh = new Short;
 
-$s = new Short;
-
-if(isset($_POST['url'])) {
+/*Вывод URL в окно формы*/
+if (isset($_POST['url'])) {
     $url = $_POST['url'];
 
-    if ($code = $s->makeCode($url)) {
+    if ($code = $sh->makeCode($url)) {
         $_SESSION['feedback'] = "Generated! Ваша ссылка: <a href=\"http://localhost/test2/{$code}\">http://localhost/test2/{$code}</a>";
         echo $code;
     } else {
@@ -15,4 +15,4 @@ if(isset($_POST['url'])) {
     }
 }
 
-header('Location: index.php');
+header('Location: index.php'); //Перенаправление браузера
