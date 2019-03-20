@@ -13,14 +13,7 @@
 ##### id:10-20 генерация ссылки 1-м способом
 ##### id:21-25 генерация ссылки 2-м способом
 
-Таблица link<br>
-<table><tbody><tr align="center">
-<td>id -<br>Идентификатор строки</td> 
-<td>url -<br>Оригинальный URI</td>
-<td>code -<br>Код-ссылка</td>
-<td>created -<br>Дата добавления строки</td>
-</tr></tbody></table>
-Список выполненных команд mysql<br>
+
 > mysql 
 > use test2db
 > show tables;
