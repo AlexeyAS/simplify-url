@@ -13,6 +13,13 @@
 ##### id:10-20 генерация ссылки 1-м способом
 ##### id:21-25 генерация ссылки 2-м способом
 
+###### Таблица link
+<table><tbody><tr align="center">
+<td>id -<br>Идентификатор строки</td> 
+<td>url -<br>Оригинальный URI</td>
+<td>code -<br>Код-ссылка</td>
+<td>created -<br>Дата добавления строки</td>
+</tr></tbody></table>
 
 > mysql <br>
 > use test2db <br>
@@ -22,7 +29,7 @@
 > describe links; <br>
 >insert into links(url, code, created) values('https://www.youtube.com', 'ytub0', now()); <br>
 >select * from links; <br>
->alter table links auto_increment = 10;>
+>alter table links auto_increment = 10;
 
 ##### Код выполнен в соответствии PSR-1/2, PHP 5.6 
 ##### Стороние библиотеки, фреймворки не используются
