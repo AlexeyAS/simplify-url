@@ -20,8 +20,8 @@
 <td>code -<br>Код-ссылка</td>
 <td>created -<br>Дата добавления строки</td>
 </tr></tbody></table>
-Список выполненных команд mysql<br>
-<code>mysql <br>
+Список выполненных команд mysql</br>
+<code>mysql </br>
 use test2db <br>
 show tables; <br>
 create table links 
