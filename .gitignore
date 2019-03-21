@@ -1,3 +1,2 @@
 .idea
-links/*
-!links/test.php
+/vendor/
