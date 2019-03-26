@@ -1,11 +1,12 @@
 <?php
-namespace test2\php\classes;
-use test2;
+
+namespace Test2\Php\Classes;
+
+use Test2;
 
 class Short
 {
     protected $db; //БД
-
 
     public function __construct() //Вводим параметры БД на нашем сервере
     {
@@ -26,11 +27,10 @@ class Short
         /*Генерация ссылки на основе инкремента id строки + рандома символов*/
         $symb = "qwertyuiopasdfghjklzxcvbnm";
         $rand .= substr(str_shuffle($symb), 0, 3);
-        if($text != NULL){
+        if ($text != null) {
             $rand .= "/$text";
         }
         return $rand;
-
     }
 
     public function makeCode($url, $text) //Вывод-запись кода-ссылки

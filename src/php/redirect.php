@@ -1,9 +1,12 @@
 <?php
-namespace test2\php;
-use test2;
-use test2\php\classes\Short;
-require_once 'Short.php';
-//include '../../vendor/autoload.php';
+
+namespace Test2\Php;
+
+require_once '../../vendor/autoload.php';
+
+use Test2;
+use Test2\Php\Classes\Short;
+
 //Перенаправление по коду-ссылке
 if (isset($_GET['code'])) {
     $shorten = new Short;

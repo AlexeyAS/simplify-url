@@ -1,5 +1,5 @@
 <?php
-namespace test2;
+namespace Test2;
 session_start();//Возобновление сессии на текущей странице
 ?>
 
@@ -22,7 +22,7 @@ session_start();//Возобновление сессии на текущей с
 
     <form action="src/php/short.php" method="post">
         <input type="url" name="url" required placeholder="Введите ссылку..." autocomplete="off">
-        <input type="text" name="text" placeholder="Введите свою ссылку..." autocomplete="off">
+        <input type="text" name="text" placeholder="Введите свою ссылку..." pattern="[a-z0-9]{2,10}" autocomplete="off">
         <input type="submit" name="submit" value="Сгенерировать">
     </form>
 

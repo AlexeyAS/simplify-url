@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Test2\\":"test2/",
+            "Test2\\Php\\":"src/php/",
+            "Test2\\Php\\Classes\\":"classes/"
+        }
+    }
+}

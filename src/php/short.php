@@ -1,9 +1,13 @@
 <?php
-namespace test2\php;
-use test2;
-use test2\php\classes\Short;
-//include '../../vendor/autoload.php';
-require_once 'classes/Short.php';
+
+namespace Test2\Php;
+
+/*Автозагрузка через composer*/
+require_once '../../vendor/autoload.php'; //каталог vendor, composer.phar в корне проекта
+
+use Test2;
+use Test2\Php\Classes\Short;
+
 session_start();
 $shorten = new Short;
 
